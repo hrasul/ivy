@@ -240,8 +240,8 @@ inputs broadcast to.</p></li>
 </dl>
 <p class="rubric">Examples</p>
 <p># suppose we have a set of 32 images in “h w c” format (height-width-channel)
-&gt;&gt;&gt; images = [ivy.random.randn(30, 40, 3) for _ in range(32)]
-&gt;&gt;&gt; output = ivy.fill(images.shape, 0)</p>
+&gt;&gt;&gt; images = [np.random.randn(30, 40, 3) for _ in range(32)]
+&gt;&gt;&gt; output = np.fill(images.shape, 0)</p>
 <p># stack along first (batch) axis, output is the same
 &gt;&gt;&gt; x=ivy.einops_rearrange(images, ‘b h w c -&gt; b h w c’)
 &gt;&gt;&gt; print(x.shape)

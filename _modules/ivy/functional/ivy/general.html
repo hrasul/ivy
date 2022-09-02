@@ -2259,8 +2259,8 @@
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    # suppose we have a set of 32 images in &quot;h w c&quot; format (height-width-channel)</span>
-<span class="sd">    &gt;&gt;&gt; images = [ivy.random.randn(30, 40, 3) for _ in range(32)]</span>
-<span class="sd">    &gt;&gt;&gt; output = ivy.fill(images.shape, 0)</span>
+<span class="sd">    &gt;&gt;&gt; images = [np.random.randn(30, 40, 3) for _ in range(32)]</span>
+<span class="sd">    &gt;&gt;&gt; output = np.fill(images.shape, 0)</span>
 
 <span class="sd">    # stack along first (batch) axis, output is the same</span>
 <span class="sd">    &gt;&gt;&gt; x=ivy.einops_rearrange(images, &#39;b h w c -&gt; b h w c&#39;)</span>
