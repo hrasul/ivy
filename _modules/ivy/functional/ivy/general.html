@@ -2260,15 +2260,14 @@
 <span class="sd">    --------</span>
 <span class="sd">    # suppose we have a set of 32 images in &quot;h w c&quot; format (height-width-channel)</span>
 <span class="sd">    &gt;&gt;&gt; images = [np.random.randn(30, 40, 3) for _ in range(32)]</span>
-<span class="sd">    &gt;&gt;&gt; output = np.zeros_like(images)</span>
 
 <span class="sd">    # stack along first (batch) axis, output is the same</span>
 <span class="sd">    &gt;&gt;&gt; x=ivy.einops_rearrange(images, &#39;b h w c -&gt; b h w c&#39;)</span>
 <span class="sd">    &gt;&gt;&gt; print(x.shape)</span>
 <span class="sd">    (32, 30, 40, 3)</span>
 <span class="sd">    # concatenate images along vertical axis</span>
-<span class="sd">    &gt;&gt;&gt; ivy.einops_rearrange(images, &#39;b h w c -&gt; (b h) w c&#39;,out=output)</span>
-<span class="sd">    &gt;&gt;&gt; print(output.shape)</span>
+<span class="sd">    &gt;&gt;&gt; x = ivy.einops_rearrange(images, &#39;b h w c -&gt; (b h) w c&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; print(x.shape)</span>
 <span class="sd">    (960, 40, 3)</span>
 
 <span class="sd">    # concatenated images along horizontal axis, 1280 = 32 * 40</span>
